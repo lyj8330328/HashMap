@@ -13,7 +13,7 @@ public class DNHashMap<K,V> implements DNMap<K, V> {
 	
 	private int size=0;
 	
-	@SuppressWarnings("unchecked")
+	
 	public DNHashMap(int Length,double  Loader){
 		defaultLength=Length;
 		defaultLoader=Loader;
@@ -49,14 +49,16 @@ public class DNHashMap<K,V> implements DNMap<K, V> {
 		return new Entry<K, V>(k,v,next);
 	}
 	
-	@SuppressWarnings({ "unchecked", "unused" })
+	
 	private void up2size(){
 		Entry<K,V>[] newTable=new Entry[2*defaultLength];
 	  	
+		againHash(newTable);
 	  	//创建的新数组要包含原数组的元素
+		System.out.println(newTable.length);
 	}
 	
-	@SuppressWarnings("unused")
+	
 	private void againHash(Entry<K,V>[] newTable){
 		List <Entry<K,V>> list=new ArrayList<Entry<K,V>>();
 		for(int i=0;i<table.length;i++){
